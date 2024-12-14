@@ -1,0 +1,2101 @@
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\.bolt\config.json
+
+{
+  "template": "vite"
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\css\cronica.css
+
+.cronica {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--athletic-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.cronica-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--athletic-red);
+    padding-bottom: 1rem;
+}
+
+.cronica-title {
+    color: var(--athletic-red);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.cronica-metadata {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cronica-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    column-count: 2;
+    column-gap: 3rem;
+}
+
+.cronica-content h3 {
+    color: var(--athletic-red);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    break-inside: avoid;
+}
+
+.cronica-content p {
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+}
+
+.cronica-content p:first-of-type::first-letter {
+    float: left;
+    color: var(--athletic-red);
+    font-size: 3.5rem;
+    line-height: 1;
+    padding-right: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.cronica-stats {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--athletic-red);
+    break-inside: avoid;
+    column-span: all;
+}
+
+.cronica-stats h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+    .cronica {
+        margin: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .cronica-content {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .cronica {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .cronica-title {
+        font-size: 1.75rem;
+    }
+
+    .cronica-content {
+        column-count: 1;
+        font-size: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\css\lightbox.css
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+
+.lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--athletic-white);
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.lightbox-controls {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+.lightbox-controls button {
+    background: none;
+    border: none;
+    color: var(--athletic-white);
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    transition: var(--transition);
+}
+
+.lightbox-controls button:hover {
+    opacity: 0.8;
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\css\styles.css
+
+:root {
+    --athletic-red: #EE2523;
+    --athletic-white: #FFFFFF;
+    --text-dark: #333333;
+    --transition: all 0.3s ease;
+    --header-height: 5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    padding-top: var(--header-height);
+}
+
+.header {
+    background: var(--athletic-red);
+    color: var(--athletic-white);
+    padding: 0.5rem 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: var(--header-height);
+}
+
+.header-content {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.header-scarf {
+    width: 20vw;
+    max-width: 200px;
+    min-width: 120px;
+    height: auto;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+}
+
+.title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: bold;
+    animation: slideIn 1s ease-out;
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-list a {
+    color: var(--athletic-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
+.nav-list a:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.gallery {
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(20px);
+    aspect-ratio: 16/9;
+}
+
+.gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    :root {
+        --header-height: 4.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: auto;
+    }
+
+    .header {
+        position: relative;
+        height: auto;
+    }
+
+    body {
+        padding-top: 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0.5rem;
+    }
+
+    .header-scarf {
+        width: 25vw;
+        min-width: 100px;
+    }
+
+    .title {
+        margin: 0.25rem 0;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        gap: 1rem;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--athletic-white);
+        margin: 5px 0;
+        transition: var(--transition);
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        margin-top: 0;
+    }
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\css\videos.css
+
+.videos {
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(20px);
+    aspect-ratio: 16/9;
+}
+
+.video-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+    .videos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .videos {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\modules\animations.js
+
+export function initAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar elementos de la galería
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    if (galleryItems) {
+        galleryItems.forEach(item => observer.observe(item));
+    }
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\modules\cronica.js
+
+export function initCronica() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar párrafos de la crónica
+    const paragraphs = document.querySelectorAll('.cronica-content p');
+    if (paragraphs) {
+        paragraphs.forEach(paragraph => observer.observe(paragraph));
+    }
+
+    // Calcular tiempo de lectura
+    const content = document.querySelector('.cronica-content');
+    const readingTimeElement = document.querySelector('.reading-time');
+    
+    if (content && readingTimeElement) {
+        const words = content.textContent.trim().split(/\s+/).length;
+        const readingTime = Math.ceil(words / 200); // 200 palabras por minuto
+        readingTimeElement.textContent = `Tiempo de lectura: ${readingTime} min`;
+    }
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\modules\lightbox.js
+
+export function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const galleryImages = document.querySelectorAll('[data-lightbox="gallery"]');
+    
+    if (!lightbox || !lightboxImg || !galleryImages.length) return;
+
+    let currentImageIndex = 0;
+
+    function openLightbox(image, index) {
+        lightboxImg.src = image.src;
+        lightboxImg.alt = image.alt;
+        currentImageIndex = index;
+        lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+    }
+
+    function navigateImage(direction) {
+        currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+        const newImage = galleryImages[currentImageIndex];
+        lightboxImg.src = newImage.src;
+        lightboxImg.alt = newImage.alt;
+    }
+
+    // Event Listeners
+    galleryImages.forEach((image, index) => {
+        image.addEventListener('click', () => openLightbox(image, index));
+    });
+
+    const closeButton = lightbox.querySelector('.close');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeLightbox);
+    }
+
+    const prevButton = lightbox.querySelector('.prev');
+    const nextButton = lightbox.querySelector('.next');
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => navigateImage(-1));
+    }
+    if (nextButton) {
+        nextButton.addEventListener('click', () => navigateImage(1));
+    }
+
+    // Cerrar lightbox al hacer clic fuera
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Eventos táctiles
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const swipeDistance = touchEndX - touchStartX;
+
+        if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (swipeDistance > 0) {
+                navigateImage(-1); // Deslizar a la derecha
+            } else {
+                navigateImage(1); // Deslizar a la izquierda
+            }
+        }
+    }
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\modules\navigation.js
+
+export function initNavigation() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    if (!menuToggle || !navList) return;
+
+    menuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Smooth scroll para enlaces de navegación
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (!target) return;
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\modules\videos.js
+
+export function initVideos() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe video items for animation
+    const videoItems = document.querySelectorAll('.video-item');
+    videoItems.forEach(item => observer.observe(item));
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\animations.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Intersection Observer para elementos de la galería
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar elementos de la galería
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        observer.observe(item);
+    });
+
+    // Observar la crónica
+    const cronicaContent = document.querySelector('.cronica-content');
+    if (cronicaContent) {
+        observer.observe(cronicaContent);
+    }
+});
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\cronica.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Animación para la entrada de párrafos
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar todos los párrafos de la crónica
+    document.querySelectorAll('.cronica-content p').forEach(paragraph => {
+        observer.observe(paragraph);
+    });
+
+    // Tiempo de lectura estimado
+    const content = document.querySelector('.cronica-content');
+    if (content) {
+        const words = content.textContent.trim().split(/\s+/).length;
+        const readingTime = Math.ceil(words / 200); // 200 palabras por minuto
+        const readingTimeElement = document.querySelector('.reading-time');
+        if (readingTimeElement) {
+            readingTimeElement.textContent = `Tiempo de lectura: ${readingTime} min`;
+        }
+    }
+});
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\lightbox.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const galleryImages = document.querySelectorAll('[data-lightbox="gallery"]');
+    let currentImageIndex = 0;
+
+    function openLightbox(image, index) {
+        lightboxImg.src = image.src;
+        currentImageIndex = index;
+        lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+    }
+
+    function navigateImage(direction) {
+        currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+        lightboxImg.src = galleryImages[currentImageIndex].src;
+    }
+
+    galleryImages.forEach((image, index) => {
+        image.addEventListener('click', () => openLightbox(image, index));
+    });
+
+    document.querySelector('.lightbox .close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox .prev').addEventListener('click', () => navigateImage(-1));
+    document.querySelector('.lightbox .next').addEventListener('click', () => navigateImage(1));
+
+    // Close lightbox on outside click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Touch events for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const swipeDistance = touchEndX - touchStartX;
+
+        if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (swipeDistance > 0) {
+                navigateImage(-1); // Swipe right
+            } else {
+                navigateImage(1); // Swipe left
+            }
+        }
+    }
+});
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\main.js
+
+import { initNavigation } from './modules/navigation.js';
+import { initLightbox } from './modules/lightbox.js';
+import { initAnimations } from './modules/animations.js';
+import { initCronica } from './modules/cronica.js';
+import { initVideos } from './modules/videos.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    initNavigation();
+    initLightbox();
+    initAnimations();
+    initCronica();
+    initVideos();
+});
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\js\navigation.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    menuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
+});
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\counter.js
+
+export function setupCounter(element) {
+  let counter = 0
+  const setCounter = (count) => {
+    counter = count
+    element.innerHTML = `count is ${counter}`
+  }
+  element.addEventListener('click', () => setCounter(counter + 1))
+  setCounter(0)
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\index.html
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viaje a Estambul - Athletic Club</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/lightbox.css" />
+    <link rel="stylesheet" href="css/cronica.css" />
+    <link rel="stylesheet" href="css/videos.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <img
+          src="images/bufanda-Athletic.png"
+          alt="Bufanda del Athletic Club"
+          class="header-scarf"
+        />
+        <h1 class="title">Viaje a Estambul</h1>
+        <nav class="nav">
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-list">
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#videos">Vídeos</a></li>
+            <li><a href="#cronica">Crónica</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="galeria" class="gallery">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/4.jpg" alt="4.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/2.jpg" alt="2.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/3.jpg" alt="3.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/1.jpg" alt="1.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/5.jpg" alt="5.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/6.jpg" alt="6.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/7.jpg" alt="7.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/8.jpg" alt="8.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/9.jpg" alt="9.jpg" data-lightbox="gallery" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/10.jpg" alt="10.jpg" data-lightbox="gallery" />
+          </div>
+        </div>
+      </section>
+
+      <section id="videos" class="videos">
+        <div class="videos-grid">
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/DAzygnHLYi4"
+                title="Athletic Club en Estambul"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
+
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/CT2zSgIoAqY"
+                title="Athletic Club en Estambul"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cronica" class="cronica">
+        <div class="cronica-header">
+          <h2 class="cronica-title">
+            Crónica del Partido: Fenerbahçe 0 - 2 Athletic Club (11 de diciembre
+            de 2024)
+          </h2>
+          <div class="cronica-metadata">
+            <span class="reading-time"></span>
+          </div>
+        </div>
+        <div class="cronica-content">
+          <p>
+            El Athletic Club cerró la fase de grupos de la UEFA Europa League
+            con una actuación magistral en el Ülker Stadyumu de Estambul,
+            venciendo al Fenerbahçe por 0-2. Este triunfo no solo asegura la
+            primera posición del grupo para los leones, sino que consolida su
+            buen momento en la competición europea.
+          </p>
+
+          <h3>Un arranque fulminante</h3>
+          <p>
+            El partido comenzó con el Athletic mostrando determinación y un plan
+            de juego claro. Apenas en el minuto 5, Iñaki Williams aprovechó una
+            rápida combinación con Gorka Guruzeta para abrir el marcador. El
+            delantero vasco, con un remate ajustado, batió al portero Dominik
+            Livaković y silenció momentáneamente a la ruidosa afición local.
+          </p>
+
+          <p>
+            A partir del gol, el conjunto dirigido por Ernesto Valverde tomó el
+            control del juego. Aunque el Fenerbahçe intentó reaccionar, su
+            ataque, liderado por nombres como Edin Džeko y Dusan Tadić, se topó
+            una y otra vez con una defensa rojiblanca bien organizada, con Yeray
+            Álvarez y Dani Vivian como bastiones.
+          </p>
+
+          <h3>La afición rojiblanca, el jugador número 12</h3>
+          <p>
+            En las gradas, una nutrida representación de seguidores del Athletic
+            viajó hasta Estambul para alentar a su equipo. A pesar de ser
+            minoría, su entusiasmo no pasó desapercibido. Los cánticos
+            rojiblancos resonaron en distintos momentos del partido, dando
+            aliento a los jugadores en un estadio donde los locales suelen
+            imponer su presión ambiental.
+          </p>
+
+          <h3>Segunda mitad: Control y sentencia</h3>
+          <p>
+            En el segundo tiempo, el Athletic gestionó con inteligencia su
+            ventaja. Valverde reforzó el centro del campo con la entrada de
+            Mikel Vesga e Íñigo Ruiz de Galarreta, priorizando el control de la
+            posesión frente a las acometidas del equipo de José Mourinho.
+          </p>
+
+          <p>
+            En el tramo final, cuando el Fenerbahçe volcaba sus esfuerzos al
+            ataque, el Athletic sentenció el partido. En el minuto 85, un
+            contragolpe letal liderado por Iñaki Williams terminó con una
+            asistencia al área que Oihan Sancet transformó en el 0-2 con un
+            remate certero.
+          </p>
+
+          <div class="cronica-stats">
+            <h3>Estadísticas destacadas</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <p>
+                  <strong>Goleadores:</strong><br />Iñaki Williams (5'), Oihan
+                  Sancet (85')
+                </p>
+              </div>
+              <div class="stat-item">
+                <p>
+                  <strong>Posesión:</strong><br />Fenerbahçe 55% - 45% Athletic
+                  Club
+                </p>
+              </div>
+              <div class="stat-item">
+                <p>
+                  <strong>Tiros a puerta:</strong><br />Fenerbahçe 3 - 6
+                  Athletic Club
+                </p>
+              </div>
+              <div class="stat-item">
+                <p>
+                  <strong>Faltas cometidas:</strong><br />Fenerbahçe 11 - 21
+                  Athletic Club
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Conclusiones</h3>
+          <p>
+            Con esta victoria, el Athletic Club cierra la fase de grupos invicto
+            y suma 16 puntos de 18 posibles. El equipo no solo ha demostrado
+            solidez defensiva y eficacia ofensiva, sino que también ha contado
+            con el respaldo incondicional de su afición, que convirtió Estambul
+            en una pequeña extensión de San Mamés. Este rendimiento refuerza las
+            expectativas de cara a la siguiente fase del torneo, donde los
+            leones buscarán prolongar su sueño europeo.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" alt="" />
+      <div class="lightbox-controls">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\main.js
+
+import './style.css'
+import javascriptLogo from './javascript.svg'
+import viteLogo from '/vite.svg'
+import { setupCounter } from './counter.js'
+
+document.querySelector('#app').innerHTML = `
+  <div>
+    <a href="https://vitejs.dev" target="_blank">
+      <img src="${viteLogo}" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
+    </a>
+    <h1>Hello Vite!</h1>
+    <div class="card">
+      <button id="counter" type="button"></button>
+    </div>
+    <p class="read-the-docs">
+      Click on the Vite logo to learn more
+    </p>
+  </div>
+`
+
+setupCounter(document.querySelector('#counter'))
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\package-lock.json
+
+{
+  "name": "vite-starter",
+  "version": "0.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "vite-starter",
+      "version": "0.0.0",
+      "devDependencies": {
+        "vite": "^5.4.2"
+      }
+    },
+    "node_modules/@esbuild/aix-ppc64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.21.5.tgz",
+      "integrity": "sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==",
+      "cpu": [
+        "ppc64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "aix"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/android-arm": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.21.5.tgz",
+      "integrity": "sha512-vCPvzSjpPHEi1siZdlvAlsPxXl7WbOVUBBAowWug4rJHb68Ox8KualB+1ocNvT5fjv6wpkX6o/iEpbDrf68zcg==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/android-arm64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-arm64/-/android-arm64-0.21.5.tgz",
+      "integrity": "sha512-c0uX9VAUBQ7dTDCjq+wdyGLowMdtR/GoC2U5IYk/7D1H1JYC0qseD7+11iMP2mRLN9RcCMRcjC4YMclCzGwS/A==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/android-x64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-x64/-/android-x64-0.21.5.tgz",
+      "integrity": "sha512-D7aPRUUNHRBwHxzxRvp856rjUHRFW1SdQATKXH2hqA0kAZb1hKmi02OpYRacl0TxIGz/ZmXWlbZgjwWYaCakTA==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/darwin-arm64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.21.5.tgz",
+      "integrity": "sha512-DwqXqZyuk5AiWWf3UfLiRDJ5EDd49zg6O9wclZ7kUMv2WRFr4HKjXp/5t8JZ11QbQfUS6/cRCKGwYhtNAY88kQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/darwin-x64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.21.5.tgz",
+      "integrity": "sha512-se/JjF8NlmKVG4kNIuyWMV/22ZaerB+qaSi5MdrXtd6R08kvs2qCN4C09miupktDitvh8jRFflwGFBQcxZRjbw==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/freebsd-arm64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/freebsd-arm64/-/freebsd-arm64-0.21.5.tgz",
+      "integrity": "sha512-5JcRxxRDUJLX8JXp/wcBCy3pENnCgBR9bN6JsY4OmhfUtIHe3ZW0mawA7+RDAcMLrMIZaf03NlQiX9DGyB8h4g==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/freebsd-x64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/freebsd-x64/-/freebsd-x64-0.21.5.tgz",
+      "integrity": "sha512-J95kNBj1zkbMXtHVH29bBriQygMXqoVQOQYA+ISs0/2l3T9/kj42ow2mpqerRBxDJnmkUDCaQT/dfNXWX/ZZCQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-arm": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.21.5.tgz",
+      "integrity": "sha512-bPb5AHZtbeNGjCKVZ9UGqGwo8EUu4cLq68E95A53KlxAPRmUyYv2D6F0uUI65XisGOL1hBP5mTronbgo+0bFcA==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-arm64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.21.5.tgz",
+      "integrity": "sha512-ibKvmyYzKsBeX8d8I7MH/TMfWDXBF3db4qM6sy+7re0YXya+K1cem3on9XgdT2EQGMu4hQyZhan7TeQ8XkGp4Q==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-ia32": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-ia32/-/linux-ia32-0.21.5.tgz",
+      "integrity": "sha512-YvjXDqLRqPDl2dvRODYmmhz4rPeVKYvppfGYKSNGdyZkA01046pLWyRKKI3ax8fbJoK5QbxblURkwK/MWY18Tg==",
+      "cpu": [
+        "ia32"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-loong64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-loong64/-/linux-loong64-0.21.5.tgz",
+      "integrity": "sha512-uHf1BmMG8qEvzdrzAqg2SIG/02+4/DHB6a9Kbya0XDvwDEKCoC8ZRWI5JJvNdUjtciBGFQ5PuBlpEOXQj+JQSg==",
+      "cpu": [
+        "loong64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-mips64el": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-mips64el/-/linux-mips64el-0.21.5.tgz",
+      "integrity": "sha512-IajOmO+KJK23bj52dFSNCMsz1QP1DqM6cwLUv3W1QwyxkyIWecfafnI555fvSGqEKwjMXVLokcV5ygHW5b3Jbg==",
+      "cpu": [
+        "mips64el"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-ppc64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-ppc64/-/linux-ppc64-0.21.5.tgz",
+      "integrity": "sha512-1hHV/Z4OEfMwpLO8rp7CvlhBDnjsC3CttJXIhBi+5Aj5r+MBvy4egg7wCbe//hSsT+RvDAG7s81tAvpL2XAE4w==",
+      "cpu": [
+        "ppc64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-riscv64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-riscv64/-/linux-riscv64-0.21.5.tgz",
+      "integrity": "sha512-2HdXDMd9GMgTGrPWnJzP2ALSokE/0O5HhTUvWIbD3YdjME8JwvSCnNGBnTThKGEB91OZhzrJ4qIIxk/SBmyDDA==",
+      "cpu": [
+        "riscv64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-s390x": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-s390x/-/linux-s390x-0.21.5.tgz",
+      "integrity": "sha512-zus5sxzqBJD3eXxwvjN1yQkRepANgxE9lgOW2qLnmr8ikMTphkjgXu1HR01K4FJg8h1kEEDAqDcZQtbrRnB41A==",
+      "cpu": [
+        "s390x"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/linux-x64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.21.5.tgz",
+      "integrity": "sha512-1rYdTpyv03iycF1+BhzrzQJCdOuAOtaqHTWJZCWvijKD2N5Xu0TtVC8/+1faWqcP9iBCWOmjmhoH94dH82BxPQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/netbsd-x64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/netbsd-x64/-/netbsd-x64-0.21.5.tgz",
+      "integrity": "sha512-Woi2MXzXjMULccIwMnLciyZH4nCIMpWQAs049KEeMvOcNADVxo0UBIQPfSmxB3CWKedngg7sWZdLvLczpe0tLg==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "netbsd"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/openbsd-x64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/openbsd-x64/-/openbsd-x64-0.21.5.tgz",
+      "integrity": "sha512-HLNNw99xsvx12lFBUwoT8EVCsSvRNDVxNpjZ7bPn947b8gJPzeHWyNVhFsaerc0n3TsbOINvRP2byTZ5LKezow==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "openbsd"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/sunos-x64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/sunos-x64/-/sunos-x64-0.21.5.tgz",
+      "integrity": "sha512-6+gjmFpfy0BHU5Tpptkuh8+uw3mnrvgs+dSPQXQOv3ekbordwnzTVEb4qnIvQcYXq6gzkyTnoZ9dZG+D4garKg==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "sunos"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/win32-arm64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-arm64/-/win32-arm64-0.21.5.tgz",
+      "integrity": "sha512-Z0gOTd75VvXqyq7nsl93zwahcTROgqvuAcYDUr+vOv8uHhNSKROyU961kgtCD1e95IqPKSQKH7tBTslnS3tA8A==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/win32-ia32": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-ia32/-/win32-ia32-0.21.5.tgz",
+      "integrity": "sha512-SWXFF1CL2RVNMaVs+BBClwtfZSvDgtL//G/smwAc5oVK/UPu2Gu9tIaRgFmYFFKrmg3SyAjSrElf0TiJ1v8fYA==",
+      "cpu": [
+        "ia32"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/win32-x64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.21.5.tgz",
+      "integrity": "sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@rollup/rollup-android-arm-eabi": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.28.1.tgz",
+      "integrity": "sha512-2aZp8AES04KI2dy3Ss6/MDjXbwBzj+i0GqKtWXgw2/Ma6E4jJvujryO6gJAghIRVz7Vwr9Gtl/8na3nDUKpraQ==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "android"
+      ]
+    },
+    "node_modules/@rollup/rollup-android-arm64": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-android-arm64/-/rollup-android-arm64-4.28.1.tgz",
+      "integrity": "sha512-EbkK285O+1YMrg57xVA+Dp0tDBRB93/BZKph9XhMjezf6F4TpYjaUSuPt5J0fZXlSag0LmZAsTmdGGqPp4pQFA==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "android"
+      ]
+    },
+    "node_modules/@rollup/rollup-darwin-arm64": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.28.1.tgz",
+      "integrity": "sha512-prduvrMKU6NzMq6nxzQw445zXgaDBbMQvmKSJaxpaZ5R1QDM8w+eGxo6Y/jhT/cLoCvnZI42oEqf9KQNYz1fqQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@rollup/rollup-darwin-x64": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-darwin-x64/-/rollup-darwin-x64-4.28.1.tgz",
+      "integrity": "sha512-WsvbOunsUk0wccO/TV4o7IKgloJ942hVFK1CLatwv6TJspcCZb9umQkPdvB7FihmdxgaKR5JyxDjWpCOp4uZlQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@rollup/rollup-freebsd-arm64": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-freebsd-arm64/-/rollup-freebsd-arm64-4.28.1.tgz",
+      "integrity": "sha512-HTDPdY1caUcU4qK23FeeGxCdJF64cKkqajU0iBnTVxS8F7H/7BewvYoG+va1KPSL63kQ1PGNyiwKOfReavzvNA==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "freebsd"
+      ]
+    },
+    "node_modules/@rollup/rollup-freebsd-x64": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-freebsd-x64/-/rollup-freebsd-x64-4.28.1.tgz",
+      "integrity": "sha512-m/uYasxkUevcFTeRSM9TeLyPe2QDuqtjkeoTpP9SW0XxUWfcYrGDMkO/m2tTw+4NMAF9P2fU3Mw4ahNvo7QmsQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "freebsd"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-arm-gnueabihf": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-arm-gnueabihf/-/rollup-linux-arm-gnueabihf-4.28.1.tgz",
+      "integrity": "sha512-QAg11ZIt6mcmzpNE6JZBpKfJaKkqTm1A9+y9O+frdZJEuhQxiugM05gnCWiANHj4RmbgeVJpTdmKRmH/a+0QbA==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-arm-musleabihf": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-arm-musleabihf/-/rollup-linux-arm-musleabihf-4.28.1.tgz",
+      "integrity": "sha512-dRP9PEBfolq1dmMcFqbEPSd9VlRuVWEGSmbxVEfiq2cs2jlZAl0YNxFzAQS2OrQmsLBLAATDMb3Z6MFv5vOcXg==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-arm64-gnu": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-arm64-gnu/-/rollup-linux-arm64-gnu-4.28.1.tgz",
+      "integrity": "sha512-uGr8khxO+CKT4XU8ZUH1TTEUtlktK6Kgtv0+6bIFSeiSlnGJHG1tSFSjm41uQ9sAO/5ULx9mWOz70jYLyv1QkA==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-arm64-musl": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-arm64-musl/-/rollup-linux-arm64-musl-4.28.1.tgz",
+      "integrity": "sha512-QF54q8MYGAqMLrX2t7tNpi01nvq5RI59UBNx+3+37zoKX5KViPo/gk2QLhsuqok05sSCRluj0D00LzCwBikb0A==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-loongarch64-gnu": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-loongarch64-gnu/-/rollup-linux-loongarch64-gnu-4.28.1.tgz",
+      "integrity": "sha512-vPul4uodvWvLhRco2w0GcyZcdyBfpfDRgNKU+p35AWEbJ/HPs1tOUrkSueVbBS0RQHAf/A+nNtDpvw95PeVKOA==",
+      "cpu": [
+        "loong64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-powerpc64le-gnu": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-powerpc64le-gnu/-/rollup-linux-powerpc64le-gnu-4.28.1.tgz",
+      "integrity": "sha512-pTnTdBuC2+pt1Rmm2SV7JWRqzhYpEILML4PKODqLz+C7Ou2apEV52h19CR7es+u04KlqplggmN9sqZlekg3R1A==",
+      "cpu": [
+        "ppc64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-riscv64-gnu": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-riscv64-gnu/-/rollup-linux-riscv64-gnu-4.28.1.tgz",
+      "integrity": "sha512-vWXy1Nfg7TPBSuAncfInmAI/WZDd5vOklyLJDdIRKABcZWojNDY0NJwruY2AcnCLnRJKSaBgf/GiJfauu8cQZA==",
+      "cpu": [
+        "riscv64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-s390x-gnu": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-s390x-gnu/-/rollup-linux-s390x-gnu-4.28.1.tgz",
+      "integrity": "sha512-/yqC2Y53oZjb0yz8PVuGOQQNOTwxcizudunl/tFs1aLvObTclTwZ0JhXF2XcPT/zuaymemCDSuuUPXJJyqeDOg==",
+      "cpu": [
+        "s390x"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-x64-gnu": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.28.1.tgz",
+      "integrity": "sha512-fzgeABz7rrAlKYB0y2kSEiURrI0691CSL0+KXwKwhxvj92VULEDQLpBYLHpF49MSiPG4sq5CK3qHMnb9tlCjBw==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-x64-musl": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.28.1.tgz",
+      "integrity": "sha512-xQTDVzSGiMlSshpJCtudbWyRfLaNiVPXt1WgdWTwWz9n0U12cI2ZVtWe/Jgwyv/6wjL7b66uu61Vg0POWVfz4g==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-win32-arm64-msvc": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-win32-arm64-msvc/-/rollup-win32-arm64-msvc-4.28.1.tgz",
+      "integrity": "sha512-wSXmDRVupJstFP7elGMgv+2HqXelQhuNf+IS4V+nUpNVi/GUiBgDmfwD0UGN3pcAnWsgKG3I52wMOBnk1VHr/A==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@rollup/rollup-win32-ia32-msvc": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-win32-ia32-msvc/-/rollup-win32-ia32-msvc-4.28.1.tgz",
+      "integrity": "sha512-ZkyTJ/9vkgrE/Rk9vhMXhf8l9D+eAhbAVbsGsXKy2ohmJaWg0LPQLnIxRdRp/bKyr8tXuPlXhIoGlEB5XpJnGA==",
+      "cpu": [
+        "ia32"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@rollup/rollup-win32-x64-msvc": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.28.1.tgz",
+      "integrity": "sha512-ZvK2jBafvttJjoIdKm/Q/Bh7IJ1Ose9IBOwpOXcOvW3ikGTQGmKDgxTC6oCAzW6PynbkKP8+um1du81XJHZ0JA==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@types/estree": {
+      "version": "1.0.6",
+      "resolved": "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz",
+      "integrity": "sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==",
+      "dev": true
+    },
+    "node_modules/esbuild": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/esbuild/-/esbuild-0.21.5.tgz",
+      "integrity": "sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==",
+      "dev": true,
+      "hasInstallScript": true,
+      "bin": {
+        "esbuild": "bin/esbuild"
+      },
+      "engines": {
+        "node": ">=12"
+      },
+      "optionalDependencies": {
+        "@esbuild/aix-ppc64": "0.21.5",
+        "@esbuild/android-arm": "0.21.5",
+        "@esbuild/android-arm64": "0.21.5",
+        "@esbuild/android-x64": "0.21.5",
+        "@esbuild/darwin-arm64": "0.21.5",
+        "@esbuild/darwin-x64": "0.21.5",
+        "@esbuild/freebsd-arm64": "0.21.5",
+        "@esbuild/freebsd-x64": "0.21.5",
+        "@esbuild/linux-arm": "0.21.5",
+        "@esbuild/linux-arm64": "0.21.5",
+        "@esbuild/linux-ia32": "0.21.5",
+        "@esbuild/linux-loong64": "0.21.5",
+        "@esbuild/linux-mips64el": "0.21.5",
+        "@esbuild/linux-ppc64": "0.21.5",
+        "@esbuild/linux-riscv64": "0.21.5",
+        "@esbuild/linux-s390x": "0.21.5",
+        "@esbuild/linux-x64": "0.21.5",
+        "@esbuild/netbsd-x64": "0.21.5",
+        "@esbuild/openbsd-x64": "0.21.5",
+        "@esbuild/sunos-x64": "0.21.5",
+        "@esbuild/win32-arm64": "0.21.5",
+        "@esbuild/win32-ia32": "0.21.5",
+        "@esbuild/win32-x64": "0.21.5"
+      }
+    },
+    "node_modules/fsevents": {
+      "version": "2.3.3",
+      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+      "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
+      "dev": true,
+      "hasInstallScript": true,
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
+      }
+    },
+    "node_modules/nanoid": {
+      "version": "3.3.8",
+      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.8.tgz",
+      "integrity": "sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==",
+      "dev": true,
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/ai"
+        }
+      ],
+      "bin": {
+        "nanoid": "bin/nanoid.cjs"
+      },
+      "engines": {
+        "node": "^10 || ^12 || ^13.7 || ^14 || >=15.0.1"
+      }
+    },
+    "node_modules/picocolors": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+      "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==",
+      "dev": true
+    },
+    "node_modules/postcss": {
+      "version": "8.4.49",
+      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.49.tgz",
+      "integrity": "sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==",
+      "dev": true,
+      "funding": [
+        {
+          "type": "opencollective",
+          "url": "https://opencollective.com/postcss/"
+        },
+        {
+          "type": "tidelift",
+          "url": "https://tidelift.com/funding/github/npm/postcss"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/ai"
+        }
+      ],
+      "dependencies": {
+        "nanoid": "^3.3.7",
+        "picocolors": "^1.1.1",
+        "source-map-js": "^1.2.1"
+      },
+      "engines": {
+        "node": "^10 || ^12 || >=14"
+      }
+    },
+    "node_modules/rollup": {
+      "version": "4.28.1",
+      "resolved": "https://registry.npmjs.org/rollup/-/rollup-4.28.1.tgz",
+      "integrity": "sha512-61fXYl/qNVinKmGSTHAZ6Yy8I3YIJC/r2m9feHo6SwVAVcLT5MPwOUFe7EuURA/4m0NR8lXG4BBXuo/IZEsjMg==",
+      "dev": true,
+      "dependencies": {
+        "@types/estree": "1.0.6"
+      },
+      "bin": {
+        "rollup": "dist/bin/rollup"
+      },
+      "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=8.0.0"
+      },
+      "optionalDependencies": {
+        "@rollup/rollup-android-arm-eabi": "4.28.1",
+        "@rollup/rollup-android-arm64": "4.28.1",
+        "@rollup/rollup-darwin-arm64": "4.28.1",
+        "@rollup/rollup-darwin-x64": "4.28.1",
+        "@rollup/rollup-freebsd-arm64": "4.28.1",
+        "@rollup/rollup-freebsd-x64": "4.28.1",
+        "@rollup/rollup-linux-arm-gnueabihf": "4.28.1",
+        "@rollup/rollup-linux-arm-musleabihf": "4.28.1",
+        "@rollup/rollup-linux-arm64-gnu": "4.28.1",
+        "@rollup/rollup-linux-arm64-musl": "4.28.1",
+        "@rollup/rollup-linux-loongarch64-gnu": "4.28.1",
+        "@rollup/rollup-linux-powerpc64le-gnu": "4.28.1",
+        "@rollup/rollup-linux-riscv64-gnu": "4.28.1",
+        "@rollup/rollup-linux-s390x-gnu": "4.28.1",
+        "@rollup/rollup-linux-x64-gnu": "4.28.1",
+        "@rollup/rollup-linux-x64-musl": "4.28.1",
+        "@rollup/rollup-win32-arm64-msvc": "4.28.1",
+        "@rollup/rollup-win32-ia32-msvc": "4.28.1",
+        "@rollup/rollup-win32-x64-msvc": "4.28.1",
+        "fsevents": "~2.3.2"
+      }
+    },
+    "node_modules/source-map-js": {
+      "version": "1.2.1",
+      "resolved": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz",
+      "integrity": "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==",
+      "dev": true,
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/vite": {
+      "version": "5.4.11",
+      "resolved": "https://registry.npmjs.org/vite/-/vite-5.4.11.tgz",
+      "integrity": "sha512-c7jFQRklXua0mTzneGW9QVyxFjUgwcihC4bXEtujIo2ouWCe1Ajt/amn2PCxYnhYfd5k09JX3SB7OYWFKYqj8Q==",
+      "dev": true,
+      "dependencies": {
+        "esbuild": "^0.21.3",
+        "postcss": "^8.4.43",
+        "rollup": "^4.20.0"
+      },
+      "bin": {
+        "vite": "bin/vite.js"
+      },
+      "engines": {
+        "node": "^18.0.0 || >=20.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/vitejs/vite?sponsor=1"
+      },
+      "optionalDependencies": {
+        "fsevents": "~2.3.3"
+      },
+      "peerDependencies": {
+        "@types/node": "^18.0.0 || >=20.0.0",
+        "less": "*",
+        "lightningcss": "^1.21.0",
+        "sass": "*",
+        "sass-embedded": "*",
+        "stylus": "*",
+        "sugarss": "*",
+        "terser": "^5.4.0"
+      },
+      "peerDependenciesMeta": {
+        "@types/node": {
+          "optional": true
+        },
+        "less": {
+          "optional": true
+        },
+        "lightningcss": {
+          "optional": true
+        },
+        "sass": {
+          "optional": true
+        },
+        "sass-embedded": {
+          "optional": true
+        },
+        "stylus": {
+          "optional": true
+        },
+        "sugarss": {
+          "optional": true
+        },
+        "terser": {
+          "optional": true
+        }
+      }
+    }
+  }
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\package.json
+
+{
+  "name": "vite-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.2"
+  }
+}
+
+---
+
+Archivo: F:\TEMPORAL\project-bolt-sb1-ew7umisg (1)\project\style.css
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+---
+
